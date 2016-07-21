@@ -16,20 +16,27 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         Button btn = (Button) findViewById(R.id.btnRecycle);
+        Button btn2 = (Button) findViewById(R.id.btnChat);
 
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                changeActivity();
+                changeActivity(RecyclerActivity.class);
+            }
+        });
+
+        btn2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                changeActivity(chatActivity.class);
             }
         });
     }
 
 
 
-    private void changeActivity(){
-        Class _community = RecyclerActivity.class;
-        Intent intent = new Intent(this, RecyclerActivity.class);
+    private void changeActivity(Class _class){
+        Intent intent = new Intent(this, _class);
 
         startActivity(intent);
         finish();
