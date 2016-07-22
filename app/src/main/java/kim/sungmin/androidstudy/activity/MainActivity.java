@@ -17,6 +17,7 @@ public class MainActivity extends AppCompatActivity {
 
         Button btn = (Button) findViewById(R.id.btnRecycle);
         Button btn2 = (Button) findViewById(R.id.btnChat);
+        Button btn3 = (Button) findViewById(R.id.btnScroll);
 
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -28,7 +29,15 @@ public class MainActivity extends AppCompatActivity {
         btn2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                changeActivity(chatActivity.class);
+                changeActivity(ChatActivity.class);
+            }
+        });
+
+
+        btn3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                changeActivity(ScrollingActivity.class);
             }
         });
     }

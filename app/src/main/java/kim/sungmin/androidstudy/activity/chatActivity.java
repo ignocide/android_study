@@ -8,7 +8,7 @@ import kim.sungmin.androidstudy.R;
 import kim.sungmin.androidstudy.activity.adapter.ChatAadapter;
 import kim.sungmin.androidstudy.model.Chat;
 
-public class chatActivity extends AppCompatActivity {
+public class ChatActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

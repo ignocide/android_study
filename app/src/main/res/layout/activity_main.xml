@@ -24,6 +24,12 @@
         android:layout_height="wrap_content"
         android:text="Chat"
         android:id="@+id/btnChat"
-        android:layout_below="@+id/btnRecycle"
         android:layout_alignParentEnd="true" />
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Chat"
+        android:id="@+id/btnScroll"
+        />
 </LinearLayout>
