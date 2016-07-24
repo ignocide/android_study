@@ -4,17 +4,18 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.widget.Toast;
 
 import java.util.ArrayList;
 
 import kim.sungmin.androidstudy.R;
-import kim.sungmin.androidstudy.activity.adapter.RecyclerAdapter;
+import kim.sungmin.androidstudy.activity.adapter.Recycler2Adapter;
 
 
-public class RecyclerActivity extends AppCompatActivity {
+public class Recycler2Activity extends AppCompatActivity {
 
-    RecyclerAdapter mAdapter;
+    Recycler2Adapter mAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,27 +31,52 @@ public class RecyclerActivity extends AppCompatActivity {
         RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(this);
         mRecyclerView.setLayoutManager(mLayoutManager);
 
-        mAdapter = new RecyclerAdapter(arraylist);
+        mAdapter = new Recycler2Adapter(arraylist);
         mRecyclerView.setAdapter(mAdapter);
-        mAdapter.setItemClick(new RecyclerAdapter.ItemClick() {
+        mAdapter.setItemClick(new Recycler2Adapter.ItemClick() {
             @Override
             public void onClick(String str, int position) {
-                Toast.makeText(getApplicationContext(),position+" "+str,Toast.LENGTH_SHORT).show();;
+                Toast.makeText(getApplicationContext(),position+" "+str,Toast.LENGTH_SHORT).show();
             }
         });
         mRecyclerView.getLayoutManager().scrollToPosition(mAdapter.getItemCount()/2);
-
+        
         mRecyclerView.addOnScrollListener(new RecyclerView.OnScrollListener() {
             @Override
             public void onScrollStateChanged(RecyclerView recyclerView, int newState) {
-                if (RecyclerView.SCROLL_STATE_IDLE == newState) {
-                    int scrollDistance = getMoveHeight(recyclerView);
-                    recyclerView.smoothScrollBy(0,scrollDistance);
+                Log.d("!!!!!!!!!!!!!!!!!!!!!!!",String.valueOf(newState));
+
+                switch (newState){
+                    //스크롤상태가 idle일 경우
+                    case RecyclerView.SCROLL_STATE_IDLE : {
+                        int lastPosition = ((LinearLayoutManager)recyclerView.getLayoutManager()).findLastVisibleItemPosition();
+                        if(lastPosition == arraylist.size()-1){
+                            Log.d("","!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
+                            Toast.makeText(getApplicationContext(),"last item shown",Toast.LENGTH_SHORT).show();
+                        }
+                    }
                 }
-//                super.onScrollStateChanged(recyclerView, newState);
+                super.onScrollStateChanged(recyclerView, newState);
             }
         });
 
+
+        arraylist.add("안드로이드");
+        arraylist.add("아이폰");
+        arraylist.add("맥");
+        arraylist.add("노트북");
+        arraylist.add("안드로이드");
+        arraylist.add("아이폰");
+        arraylist.add("맥");
+        arraylist.add("노트북");
+        arraylist.add("안드로이드");
+        arraylist.add("아이폰");
+        arraylist.add("맥");
+        arraylist.add("노트북");
+        arraylist.add("안드로이드");
+        arraylist.add("아이폰");
+        arraylist.add("맥");
+        arraylist.add("노트북");
         arraylist.add("안드로이드");
         arraylist.add("아이폰");
         arraylist.add("맥");

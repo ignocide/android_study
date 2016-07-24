@@ -15,16 +15,17 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
         <activity android:name=".activity.RecyclerActivity" />
-
-        <activity android:name=".activity.ChatActivity"/>
-
+        <activity android:name=".activity.Recycler2Activity" />
+        <activity android:name=".activity.ChatActivity" />
         <activity
             android:name=".activity.ScrollingActivity"
             android:label="@string/title_activity_scrolling"
-            android:theme="@style/AppTheme.NoActionBar" >
-        </activity>
+            android:theme="@style/AppTheme.NoActionBar"></activity>
+        <activity
+            android:name=".activity.Tabedactivity"
+            android:label="@string/title_activity_tabedactivity"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
 </manifest>

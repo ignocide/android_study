@@ -18,6 +18,7 @@ public class MainActivity extends AppCompatActivity {
         Button btn = (Button) findViewById(R.id.btnRecycle);
         Button btn2 = (Button) findViewById(R.id.btnChat);
         Button btn3 = (Button) findViewById(R.id.btnScroll);
+        Button btn4 = (Button) findViewById(R.id.btnTab);
 
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -40,6 +41,14 @@ public class MainActivity extends AppCompatActivity {
                 changeActivity(ScrollingActivity.class);
             }
         });
+
+        btn4.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                changeActivity(Recycler2Activity.class);
+            }
+        });
+
     }
 
 
