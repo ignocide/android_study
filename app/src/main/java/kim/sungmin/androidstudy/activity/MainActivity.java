@@ -42,10 +42,11 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+
         btn4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                changeActivity(Recycler2Activity.class);
+                changeActivity(EndScrollEventActivity.class);
             }
         });
 

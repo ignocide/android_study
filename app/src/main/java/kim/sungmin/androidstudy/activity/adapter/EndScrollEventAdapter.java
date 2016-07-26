@@ -13,17 +13,19 @@ import kim.sungmin.androidstudy.R;
 /**
  * Created by Administrator on 2016-07-20.
  */
-public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHolder>{
+public class EndScrollEventAdapter extends RecyclerView.Adapter<EndScrollEventAdapter.ViewHolder> {
     private ArrayList<String> strings;
 
-    //아이템 클릭 시 실행될 함수
+    //아이템 클릭 콜백 등록
     private ItemClick itemClick;
+
+
+
     public interface ItemClick {
-        public void onClick(String str,int position);
+        public void onClick(String str, int position);
     }
 
-    //아이템 클릭 시 실행될 함수
-    public void setItemClick(ItemClick itemClick) {
+        public void setItemClick(ItemClick itemClick) {
         this.itemClick = itemClick;
     }
 
@@ -37,15 +39,20 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHo
         }
     }
 
-    public RecyclerAdapter(ArrayList<String> strings) {
+    // Provide a suitable constructor (depends on the kind of dataset)
+    public EndScrollEventAdapter(ArrayList<String> strings) {
         this.strings = strings;
     }
 
+
+    // Create new views (invoked by the layout manager)
     @Override
-    public RecyclerAdapter.ViewHolder onCreateViewHolder(ViewGroup parent,
-                                                   int viewType) {
+    public EndScrollEventAdapter.ViewHolder onCreateViewHolder(ViewGroup parent,
+                                                               int viewType) {
+        // create a new view
         View v = LayoutInflater.from(parent.getContext())
                 .inflate(R.layout.list_items, null);
+//                .inflate(R.layout.my_text_view, parent, false);
         ViewHolder vh = new ViewHolder(v);
 
         return vh;
@@ -55,6 +62,8 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHo
 
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
+        // - get element from your dataset at this position
+        // - replace the contents of the view with that element
         position = position%strings.size();
         final String str = strings.get(position);
         holder.textView.setText(str);
@@ -71,19 +80,18 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHo
         });
     }
 
-    //무한 순회 하는 방법
+    // Return the size of your dataset (invoked by the layout manager)
     @Override
     public int getItemCount() {
-//        return locations.size();
-        return Integer.MAX_VALUE;
+        return strings.size();
+//        return Integer.MAX_VALUE;
     }
 
 
-    //무한 순회 하는 방법
     @Override
     public long getItemId(int position){
-
-        return position%strings.size();
+        return position;
+//        return position%strings.size();
     }
 }
 

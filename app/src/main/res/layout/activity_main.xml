@@ -29,14 +29,14 @@
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Chat"
+        android:text="Scrolling"
         android:id="@+id/btnScroll"
         />
 
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Chat"
+        android:text="EndScroolEvent"
         android:id="@+id/btnTab"
         />
 </LinearLayout>

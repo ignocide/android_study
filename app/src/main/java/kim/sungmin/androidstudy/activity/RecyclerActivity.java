@@ -25,13 +25,12 @@ public class RecyclerActivity extends AppCompatActivity {
 
 
         RecyclerView mRecyclerView = (RecyclerView) findViewById(R.id.recyclerView);
-//        mRecyclerView.setHasFixedSize(true);
-//        Scroll.setSmoothScrollingEnabled(false);
         RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(this);
         mRecyclerView.setLayoutManager(mLayoutManager);
 
         mAdapter = new RecyclerAdapter(arraylist);
         mRecyclerView.setAdapter(mAdapter);
+        //아이템 클릭 리스너
         mAdapter.setItemClick(new RecyclerAdapter.ItemClick() {
             @Override
             public void onClick(String str, int position) {
@@ -40,6 +39,7 @@ public class RecyclerActivity extends AppCompatActivity {
         });
         mRecyclerView.getLayoutManager().scrollToPosition(mAdapter.getItemCount()/2);
 
+        //첫 아이템이 격자에 맞도록 이동
         mRecyclerView.addOnScrollListener(new RecyclerView.OnScrollListener() {
             @Override
             public void onScrollStateChanged(RecyclerView recyclerView, int newState) {
@@ -59,6 +59,7 @@ public class RecyclerActivity extends AppCompatActivity {
 
     }
 
+    //이동해야 할 높이 계산 함수
     private int getMoveHeight(final RecyclerView recyclerView) {
         LinearLayoutManager manager = (LinearLayoutManager) recyclerView.getLayoutManager();
         RecyclerView.ViewHolder firstVisibleColumnViewHolder = recyclerView.findViewHolderForAdapterPosition(manager.findFirstVisibleItemPosition());
